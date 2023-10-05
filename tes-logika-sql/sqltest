@@ -1,0 +1,30 @@
+
+table user:
+fields
+User_id | age
+wildan  | 27
+zaki    | 25
+
+table asset:
+fields
+item	      | user_id
+notebook      | wildan
+bag  	      | wildan
+notebook      | zaki
+bag  	      | zaki
+mobile phone  | zaki
+
+-- jawaban soal c sql test 1
+
+SELECT DISTINCT item
+FROM asset;
+
+-- jawaban soal c sql test 2
+
+SELECT
+    u.User_id,
+    GROUP_CONCAT(a.item ORDER BY a.item ASC) AS asset
+FROM User u
+JOIN asset a ON u.User_id = a.user_id
+GROUP BY u.User_id;
+
